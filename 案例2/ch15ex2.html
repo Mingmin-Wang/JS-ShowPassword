@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box {
+            position:relative;
+            width:400px;
+            border-bottom: 2px solid #ccc;
+            margin:100px auto;
+            
+        }
+        #box input{
+            width:370px;
+            height:30px;
+            border:0;
+            outline: none;
+
+        }
+
+        #box img{
+            width: 24px;
+            position:absolute;
+            right:10px;
+            top:5px;
+
+        }
+    </style>
+</head>
+<body>
+    <div id="box">
+    <label for="">
+        <img src="close1.png" alt="" id="eye">
+    </label>
+    <input type="password" name="" id="pwd">
+    </div>
+    <script>
+        //思路：点击眼睛按钮，把密码框换成文本框
+        //算法：利用一个flag变量，来判断flag的值，如果是1就切换为文本框，然后flag设置为0
+        //1.get element
+        var eye=document.getElementById('eye');
+        var pwd=document.getElementById('pwd');
+        
+        //2.注册事件，处理程序
+        var flag=0;  //flag=0 ->close eye->pwd
+        eye.onclick=function(){
+            if(flag==0){
+                pwd.type="text";
+                eye.src="eye1.png";
+                flag=1;  //assign value
+            }else{
+                pwd.type="password";
+                eye.src="close1.png";
+                flag=0;
+            }
+            
+        }
+    </script>
+</body>
+</html>
